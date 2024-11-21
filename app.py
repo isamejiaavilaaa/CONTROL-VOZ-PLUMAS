@@ -6,7 +6,6 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 from PIL import Image
 import paho.mqtt.client as paho
 import json
-import time
 
 # Función de callback para publicación MQTT
 def on_publish(client, userdata, result):
@@ -93,9 +92,3 @@ if result:
                 st.error("Error al publicar el mensaje MQTT.")
         except Exception as e:
             st.error(f"Error en la conexión MQTT: {e}")
-
-        # Crear directorio temporal para almacenar datos de voz (si es necesario)
-        try:
-            os.mkdir("temp")
-        except FileExistsError:
-            pass
