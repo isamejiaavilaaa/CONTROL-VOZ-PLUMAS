@@ -21,6 +21,16 @@ def on_message(client, userdata, message):
     message_received=str(message.payload.decode("utf-8"))
     st.write(message_received)
 
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
+
+
+def write_colored_text(text, color):
+    st.markdown(f"<span style='color: {color};'>{text}</span>", unsafe_allow_html=True)
+
 broker="157.230.214.127"
 port=1883
 client1= paho.Client("voice_plumas_hub")
